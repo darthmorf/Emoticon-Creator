@@ -23,6 +23,9 @@
         <button id="showEyeOptions">
             <img src="assets/img/eyeOptions.png">
         </button>
+        <button id="showHairOptions">
+            <img src="assets/img/hairOptions.png">
+        </button>
     </div><br><br>
 
     <div id="headbaseOptions">
@@ -42,6 +45,16 @@
         <input type="range" min="0"    max="200" value="100" id="eyeSat"><input type="number" min="0"    max="200" value="100" id="eyeSatDisplay"> <i class="fas fa-redo" id="eyeSatReset" style="cursor: pointer;"></i><br>
         Lightness <br>
         <input type="range" min="0"    max="200" value="100" id="eyeLit"><input type="number" min="0"    max="200" value="100" id="eyeLitDisplay"> <i class="fas fa-redo" id="eyeLitReset" style="cursor: pointer;"></i><br>
+    </div>
+
+    <div id="hairOptions" class="disabled">
+        Hue <br>
+        <input type="range" min="-180" max="180" value="0"   id="hairHue"><input type="number" min="-180" max="180" value="0"   id="hairHueDisplay"> <i class="fas fa-redo" id="hairHueReset" style="cursor: pointer;"></i><br>
+        Saturation <br>
+        <input type="range" min="0"    max="200" value="100" id="hairSat"><input type="number" min="0"    max="200" value="100" id="hairSatDisplay"> <i class="fas fa-redo" id="hairSatReset" style="cursor: pointer;"></i><br>
+        Lightness <br>
+        <input type="range" min="0"    max="200" value="100" id="hairLit"><input type="number" min="0"    max="200" value="100" id="hairLitDisplay"> <i class="fas fa-redo" id="hairLitReset" style="cursor: pointer;"></i><br>
+        <br>
     </div>
     
     <script src="js/main.js"></script>

@@ -120,3 +120,65 @@ eyeLitReset.onclick = function () {
     eyeLitDisplay.value = emoticon.eye.lit;
     displayEmoticon();
 }
+
+
+var hairHueSlider  = document.getElementById("hairHue");
+var hairHueDisplay = document.getElementById("hairHueDisplay");
+var hairHueReset   = document.getElementById("hairHueReset");
+var hairSatSlider  = document.getElementById("hairSat");
+var hairSatDisplay = document.getElementById("hairSatDisplay");
+var hairSatReset   = document.getElementById("hairSatReset");
+var hairLitSlider  = document.getElementById("hairLit");
+var hairLitDisplay = document.getElementById("hairLitDisplay");
+var hairLitReset   = document.getElementById("hairLitReset");
+
+hairHueSlider.oninput = function() {
+    hairHueDisplay.value = this.value;
+    emoticon.hair.hue = this.value;
+    displayEmoticon();
+}
+hairHueDisplay.oninput = function () {
+    hairHueSlider.value = this.value;
+    emoticon.hair.hue = this.value;
+    displayEmoticon();
+}
+hairHueReset.onclick = function () {
+    emoticon.hair.hue = hueDefault;
+    hairHueSlider.value = emoticon.hair.hue;
+    hairHueDisplay.value = emoticon.hair.hue;
+    displayEmoticon();
+}
+
+hairSatSlider.oninput = function() {
+    hairSatDisplay.value = this.value;
+    emoticon.hair.sat = this.value;
+    displayEmoticon();
+}
+hairSatDisplay.oninput = function () {
+    hairSatSlider.value = this.value;
+    emoticon.hair.sat = this.value;
+    displayEmoticon();
+}
+hairSatReset.onclick = function () {
+    emoticon.hair.sat = satDefault;
+    hairSatSlider.value = emoticon.hair.sat;
+    hairSatDisplay.value = emoticon.hair.sat;
+    displayEmoticon();
+}
+
+hairLitSlider.oninput = function() {
+    hairLitDisplay.value = this.value;
+    emoticon.hair.lit = this.value;
+    displayEmoticon();
+}
+hairLitDisplay.oninput = function () {
+    hairLitSlider.value = this.value;
+    emoticon.hair.lit = this.value;
+    displayEmoticon();
+}
+hairLitReset.onclick = function () {
+    emoticon.hair.lit = litDefault;
+    hairLitSlider.value = emoticon.hair.lit;
+    hairLitDisplay.value = emoticon.hair.lit;
+    displayEmoticon();
+}

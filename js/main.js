@@ -3,10 +3,13 @@ var ctx = canvas.getContext("2d");
 
 var headbaseHueSlider  = document.getElementById("headbaseHue");
 var headbaseHueDisplay = document.getElementById("headbaseHueDisplay");
+var headbaseHueReset   = document.getElementById("headbaseHueReset");
 var headbaseSatSlider  = document.getElementById("headbaseSat");
 var headbaseSatDisplay = document.getElementById("headbaseSatDisplay");
+var headbaseSatReset   = document.getElementById("headbaseSatReset");
 var headbaseLitSlider  = document.getElementById("headbaseLit");
 var headbaseLitDisplay = document.getElementById("headbaseLitDisplay");
+var headbaseLitReset   = document.getElementById("headbaseLitReset");
 
 canvas.width = 400;
 canvas.height = 400;
@@ -14,12 +17,16 @@ ctx.imageSmoothingEnabled = false;
 
 var assetDir = "./assets/img";
 
+var hueDefault = 0;
+var satDefault = 100;
+var litDefault = 100;
+
 var emoticon = {
     headbase : {
         src: `${assetDir}/headbases/headbase0.png`,
-        hue: `0`,
-        sat: `100`,
-        lit: `100`,
+        hue: hueDefault,
+        sat: satDefault,
+        lit: litDefault,
     },
 };
 
@@ -56,6 +63,12 @@ headbaseHueDisplay.oninput = function () {
     emoticon.headbase.hue = this.value;
     displayEmoticon();
 }
+headbaseHueReset.onclick = function () {
+    emoticon.headbase.hue = hueDefault;
+    headbaseHueSlider.value = emoticon.headbase.hue;
+    headbaseHueDisplay.value = emoticon.headbase.hue;
+    displayEmoticon();
+}
 
 headbaseSatSlider.oninput = function() {
     headbaseSatDisplay.value = this.value;
@@ -67,6 +80,12 @@ headbaseSatDisplay.oninput = function () {
     emoticon.headbase.sat = this.value;
     displayEmoticon();
 }
+headbaseSatReset.onclick = function () {
+    emoticon.headbase.sat = satDefault;
+    headbaseSatSlider.value = emoticon.headbase.sat;
+    headbaseSatDisplay.value = emoticon.headbase.sat;
+    displayEmoticon();
+}
 
 headbaseLitSlider.oninput = function() {
     headbaseLitDisplay.value = this.value;
@@ -76,6 +95,12 @@ headbaseLitSlider.oninput = function() {
 headbaseLitDisplay.oninput = function () {
     headbaseLitSlider.value = this.value;
     emoticon.headbase.lit = this.value;
+    displayEmoticon();
+}
+headbaseLitReset.onclick = function () {
+    emoticon.headbase.lit = litDefault;
+    headbaseLitSlider.value = emoticon.headbase.lit;
+    headbaseLitDisplay.value = emoticon.headbase.lit;
     displayEmoticon();
 }
 

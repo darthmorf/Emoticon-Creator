@@ -103,24 +103,24 @@ function displayEmoticon (refreshCanvas=false) {
     var headbase = new Image();
     headbase.src = `${assetDir}/headbases/headbase${emoticon.headbase.index}.png`;
 
-    var eyes = new Image();
-    eyes.src = `${assetDir}/eyes/headbase${emoticon.headbase.index}.png`;
-
-    var hair = new Image();
-    hair.src = `${assetDir}/hair/hair${emoticon.hair.index}.png`;
-
     headbase.onload = function () {
         ctx.filter = `hue-rotate(${emoticon.headbase.hue}deg) saturate(${emoticon.headbase.sat}%) brightness(${emoticon.headbase.lit}%)`;
         ctx.drawImage(headbase, 0, 0, 360, 360);
+
+        var eyes = new Image();
+        eyes.src = `${assetDir}/eyes/headbase${emoticon.headbase.index}.png`;
+
+        eyes.onload = function () {
+            ctx.filter = `hue-rotate(${emoticon.eye.hue}deg) saturate(${emoticon.eye.sat}%) brightness(${emoticon.eye.lit}%)`;
+            ctx.drawImage(eyes, 0, 0, 360, 360);
+    
+            var hair = new Image();
+            hair.src = `${assetDir}/hair/hair${emoticon.hair.index}.png`;
+
+            hair.onload = function () {
+                ctx.filter = `hue-rotate(${emoticon.hair.hue}deg) saturate(${emoticon.hair.sat}%) brightness(${emoticon.hair.lit}%)`;
+                ctx.drawImage(hair, 0, 0, 360, 360);
+            }
+        }
     }   
-
-    eyes.onload = function () {
-        ctx.filter = `hue-rotate(${emoticon.eye.hue}deg) saturate(${emoticon.eye.sat}%) brightness(${emoticon.eye.lit}%)`;
-        ctx.drawImage(eyes, 0, 0, 360, 360);
-    }
-
-    hair.onload = function () {
-        ctx.filter = `hue-rotate(${emoticon.hair.hue}deg) saturate(${emoticon.hair.sat}%) brightness(${emoticon.hair.lit}%)`;
-        ctx.drawImage(hair, 0, 0, 360, 360);
-    }
 }

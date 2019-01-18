@@ -182,3 +182,65 @@ hairLitReset.onclick = function () {
     hairLitDisplay.value = emoticon.hair.lit;
     displayEmoticon();
 }
+
+
+var hatHueSlider  = document.getElementById("hatHue");
+var hatHueDisplay = document.getElementById("hatHueDisplay");
+var hatHueReset   = document.getElementById("hatHueReset");
+var hatSatSlider  = document.getElementById("hatSat");
+var hatSatDisplay = document.getElementById("hatSatDisplay");
+var hatSatReset   = document.getElementById("hatSatReset");
+var hatLitSlider  = document.getElementById("hatLit");
+var hatLitDisplay = document.getElementById("hatLitDisplay");
+var hatLitReset   = document.getElementById("hatLitReset");
+
+hatHueSlider.oninput = function() {
+    hatHueDisplay.value = this.value;
+    emoticon.hat.hue = this.value;
+    displayEmoticon();
+}
+hatHueDisplay.oninput = function () {
+    hatHueSlider.value = this.value;
+    emoticon.hat.hue = this.value;
+    displayEmoticon();
+}
+hatHueReset.onclick = function () {
+    emoticon.hat.hue = hueDefault;
+    hatHueSlider.value = emoticon.hat.hue;
+    hatHueDisplay.value = emoticon.hat.hue;
+    displayEmoticon();
+}
+
+hatSatSlider.oninput = function() {
+    hatSatDisplay.value = this.value;
+    emoticon.hat.sat = this.value;
+    displayEmoticon();
+}
+hatSatDisplay.oninput = function () {
+    hatSatSlider.value = this.value;
+    emoticon.hat.sat = this.value;
+    displayEmoticon();
+}
+hatSatReset.onclick = function () {
+    emoticon.hat.sat = satDefault;
+    hatSatSlider.value = emoticon.hat.sat;
+    hatSatDisplay.value = emoticon.hat.sat;
+    displayEmoticon();
+}
+
+hatLitSlider.oninput = function() {
+    hatLitDisplay.value = this.value;
+    emoticon.hat.lit = this.value;
+    displayEmoticon();
+}
+hatLitDisplay.oninput = function () {
+    hatLitSlider.value = this.value;
+    emoticon.hat.lit = this.value;
+    displayEmoticon();
+}
+hatLitReset.onclick = function () {
+    emoticon.hat.lit = litDefault;
+    hatLitSlider.value = emoticon.hat.lit;
+    hatLitDisplay.value = emoticon.hat.lit;
+    displayEmoticon();
+}

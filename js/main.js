@@ -10,6 +10,9 @@ var eyeOptions = document.getElementById("eyeOptions");
 var showHairOptions = document.getElementById("showHairOptions");
 var hairOptions = document.getElementById("hairOptions");
 
+var showHatOptions = document.getElementById("showHatOptions");
+var hatOptions = document.getElementById("hatOptions");
+
 canvas.width = 400;
 canvas.height = 400;
 ctx.imageSmoothingEnabled = false;
@@ -37,12 +40,19 @@ var emoticon = {
         hue: hueDefault,
         sat: satDefault,
         lit: litDefault,
+    },
+    hat : {
+        index: 0,
+        hue: hueDefault,
+        sat: satDefault,
+        lit: litDefault,
     }
 };
 
 function init() {
     loadHeadbaseOptions();
     loadHairOptions();
+    loadHatOptions();
     displayEmoticon();
 }
 
@@ -50,18 +60,28 @@ showHeadbaseOptions.onclick = function () {
     headbaseOptions.classList.remove("disabled");
     eyeOptions.classList.add("disabled");
     hairOptions.classList.add("disabled");
+    hatOptions.classList.add("disabled");
 }
 
 showEyeOptions.onclick = function () {
     eyeOptions.classList.remove("disabled");
     headbaseOptions.classList.add("disabled");
     hairOptions.classList.add("disabled");
+    hatOptions.classList.add("disabled");
 }
 
 showHairOptions.onclick = function () {
     hairOptions.classList.remove("disabled");
     headbaseOptions.classList.add("disabled");
     eyeOptions.classList.add("disabled");
+    hatOptions.classList.add("disabled");
+}
+
+showHatOptions.onclick = function () {
+    hatOptions.classList.remove("disabled");
+    headbaseOptions.classList.add("disabled");
+    eyeOptions.classList.add("disabled");
+    hairOptions.classList.add("disabled");
 }
 
 function loadHeadbaseOptions () {
@@ -94,6 +114,22 @@ function loadHairOptions () {
     }
 }
 
+function loadHatOptions () {
+    var hatCount = 23;
+    var i = 0;
+    for (i=0; i <= hatCount; i++){
+        var button = document.createElement("button");
+        button.hatIndex = i;
+        button.innerHTML = `<img src=${assetDir}/hatspreview/hat${i}.png>`;
+        button.onclick = function () {
+            emoticon.hat.index = this.hatIndex;
+            displayEmoticon(true);
+        }
+        hatOptions.appendChild(button);
+    }
+}
+
+
 
 function displayEmoticon (refreshCanvas=false) {
     if (refreshCanvas) {
@@ -120,7 +156,31 @@ function displayEmoticon (refreshCanvas=false) {
             hair.onload = function () {
                 ctx.filter = `hue-rotate(${emoticon.hair.hue}deg) saturate(${emoticon.hair.sat}%) brightness(${emoticon.hair.lit}%)`;
                 ctx.drawImage(hair, 0, 0, 360, 360);
+
+                var hat = new Image();
+                hat.src = `${assetDir}/hatsmasks/hat${emoticon.hat.index}.png`;
+                console.log(`${assetDir}/hatsmasks/hat${emoticon.hat.index}.png`)
+
+                hat.onload = function () {
+                    ctx.filter = `hue-rotate(${emoticon.hat.hue}deg) saturate(${emoticon.hat.sat}%) brightness(${emoticon.hat.lit}%)`;
+                    ctx.drawImage(hat, 0, 0, 360, 360);
+                    removeMask();
+                }
             }
         }
     }   
+}
+
+function removeMask () {
+    var maskColour = [255,0,255];
+    var canvasData = ctx.getImageData(0, 0, 400, 400),
+        pix = canvasData.data;
+
+    for (var i = 0, n = pix.length; i <n; i += 4) {
+        if(pix[i] === maskColour[0] && pix[i+1] === maskColour[1] && pix[i+2] === maskColour[2]){
+             pix[i+3] = 0;   
+        }
+    }
+
+    ctx.putImageData(canvasData, 0, 0);
 }

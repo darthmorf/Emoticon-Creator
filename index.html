@@ -26,6 +26,9 @@
         <button id="showHairOptions">
             <img src="assets/img/hairOptions.png">
         </button>
+        <button id="showBeardOptions">
+            <img src="assets/img/beardOptions.png">
+        </button>
         <button id="showHatOptions">
             <img src="assets/img/hatOptions.png">
         </button>
@@ -60,7 +63,17 @@
         <input type="range" min="0"    max="200" value="100" id="hairLit"><input type="number" min="0"    max="200" value="100" id="hairLitDisplay"> <i class="fas fa-redo" id="hairLitReset" style="cursor: pointer;"></i><br>
         <br>
     </div>
-    
+
+    <div id="beardOptions" class="disabled">
+        Hue <br>
+        <input type="range" min="-180" max="180" value="0"   id="beardHue"><input type="number" min="-180" max="180" value="0"   id="beardHueDisplay"> <i class="fas fa-redo" id="beardHueReset" style="cursor: pointer;"></i><br>
+        Saturation <br>
+        <input type="range" min="0"    max="200" value="100" id="beardSat"><input type="number" min="0"    max="200" value="100" id="beardSatDisplay"> <i class="fas fa-redo" id="beardSatReset" style="cursor: pointer;"></i><br>
+        Lightness <br>
+        <input type="range" min="0"    max="200" value="100" id="beardLit"><input type="number" min="0"    max="200" value="100" id="beardLitDisplay"> <i class="fas fa-redo" id="beardLitReset" style="cursor: pointer;"></i><br>
+        <br>
+    </div>
+
     <div id="hatOptions" class="disabled">
         Hue <br>
         <input type="range" min="-180" max="180" value="0"   id="hatHue"><input type="number" min="-180" max="180" value="0"   id="hatHueDisplay"> <i class="fas fa-redo" id="hatHueReset" style="cursor: pointer;"></i><br>

@@ -184,6 +184,68 @@ hairLitReset.onclick = function () {
 }
 
 
+var beardHueSlider  = document.getElementById("beardHue");
+var beardHueDisplay = document.getElementById("beardHueDisplay");
+var beardHueReset   = document.getElementById("beardHueReset");
+var beardSatSlider  = document.getElementById("beardSat");
+var beardSatDisplay = document.getElementById("beardSatDisplay");
+var beardSatReset   = document.getElementById("beardSatReset");
+var beardLitSlider  = document.getElementById("beardLit");
+var beardLitDisplay = document.getElementById("beardLitDisplay");
+var beardLitReset   = document.getElementById("beardLitReset");
+
+beardHueSlider.oninput = function() {
+    beardHueDisplay.value = this.value;
+    emoticon.beard.hue = this.value;
+    displayEmoticon();
+}
+beardHueDisplay.oninput = function () {
+    beardHueSlider.value = this.value;
+    emoticon.beard.hue = this.value;
+    displayEmoticon();
+}
+beardHueReset.onclick = function () {
+    emoticon.beard.hue = hueDefault;
+    beardHueSlider.value = emoticon.beard.hue;
+    beardHueDisplay.value = emoticon.beard.hue;
+    displayEmoticon();
+}
+
+beardSatSlider.oninput = function() {
+    beardSatDisplay.value = this.value;
+    emoticon.beard.sat = this.value;
+    displayEmoticon();
+}
+beardSatDisplay.oninput = function () {
+    beardSatSlider.value = this.value;
+    emoticon.beard.sat = this.value;
+    displayEmoticon();
+}
+beardSatReset.onclick = function () {
+    emoticon.beard.sat = satDefault;
+    beardSatSlider.value = emoticon.beard.sat;
+    beardSatDisplay.value = emoticon.beard.sat;
+    displayEmoticon();
+}
+
+beardLitSlider.oninput = function() {
+    beardLitDisplay.value = this.value;
+    emoticon.beard.lit = this.value;
+    displayEmoticon();
+}
+beardLitDisplay.oninput = function () {
+    beardLitSlider.value = this.value;
+    emoticon.beard.lit = this.value;
+    displayEmoticon();
+}
+beardLitReset.onclick = function () {
+    emoticon.beard.lit = litDefault;
+    beardLitSlider.value = emoticon.beard.lit;
+    beardLitDisplay.value = emoticon.beard.lit;
+    displayEmoticon();
+}
+
+
 var hatHueSlider  = document.getElementById("hatHue");
 var hatHueDisplay = document.getElementById("hatHueDisplay");
 var hatHueReset   = document.getElementById("hatHueReset");

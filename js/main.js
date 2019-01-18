@@ -10,6 +10,9 @@ var eyeOptions = document.getElementById("eyeOptions");
 var showHairOptions = document.getElementById("showHairOptions");
 var hairOptions = document.getElementById("hairOptions");
 
+var showBeardOptions = document.getElementById("showBeardOptions");
+var beardOptions = document.getElementById("beardOptions");
+
 var showHatOptions = document.getElementById("showHatOptions");
 var hatOptions = document.getElementById("hatOptions");
 
@@ -41,6 +44,12 @@ var emoticon = {
         sat: satDefault,
         lit: litDefault,
     },
+    beard : {        
+        index: 0,
+        hue: hueDefault,
+        sat: satDefault,
+        lit: litDefault,
+    },
     hat : {
         index: 0,
         hue: hueDefault,
@@ -53,6 +62,7 @@ function init() {
     loadHeadbaseOptions();
     loadHairOptions();
     loadHatOptions();
+    loadBeardOptions();
     displayEmoticon();
 }
 
@@ -61,6 +71,7 @@ showHeadbaseOptions.onclick = function () {
     eyeOptions.classList.add("disabled");
     hairOptions.classList.add("disabled");
     hatOptions.classList.add("disabled");
+    beardOptions.classList.add("disabled");
 }
 
 showEyeOptions.onclick = function () {
@@ -68,6 +79,7 @@ showEyeOptions.onclick = function () {
     headbaseOptions.classList.add("disabled");
     hairOptions.classList.add("disabled");
     hatOptions.classList.add("disabled");
+    beardOptions.classList.add("disabled");
 }
 
 showHairOptions.onclick = function () {
@@ -75,6 +87,15 @@ showHairOptions.onclick = function () {
     headbaseOptions.classList.add("disabled");
     eyeOptions.classList.add("disabled");
     hatOptions.classList.add("disabled");
+    beardOptions.classList.add("disabled");
+}
+
+showBeardOptions.onclick = function () {
+    beardOptions.classList.remove("disabled");
+    headbaseOptions.classList.add("disabled");
+    eyeOptions.classList.add("disabled");
+    hatOptions.classList.add("disabled");
+    hairOptions.classList.add("disabled");
 }
 
 showHatOptions.onclick = function () {
@@ -82,6 +103,7 @@ showHatOptions.onclick = function () {
     headbaseOptions.classList.add("disabled");
     eyeOptions.classList.add("disabled");
     hairOptions.classList.add("disabled");
+    beardOptions.classList.add("disabled");
 }
 
 function loadHeadbaseOptions () {
@@ -111,6 +133,21 @@ function loadHairOptions () {
             displayEmoticon(true);
         }
         hairOptions.appendChild(button);
+    }
+}
+
+function loadBeardOptions () {
+    var beardCount = 7;
+    var i = 0;
+    for (i=0; i <= beardCount; i++){
+        var button = document.createElement("button");
+        button.beardIndex = i;
+        button.innerHTML = `<img src=${assetDir}/beardspreview/beard${i}.png>`;
+        button.onclick = function () {
+            emoticon.beard.index = this.beardIndex;
+            displayEmoticon(true);
+        }
+        beardOptions.appendChild(button);
     }
 }
 
@@ -157,14 +194,21 @@ function displayEmoticon (refreshCanvas=false) {
                 ctx.filter = `hue-rotate(${emoticon.hair.hue}deg) saturate(${emoticon.hair.sat}%) brightness(${emoticon.hair.lit}%)`;
                 ctx.drawImage(hair, 0, 0, 360, 360);
 
-                var hat = new Image();
-                hat.src = `${assetDir}/hatsmasks/hat${emoticon.hat.index}.png`;
-                console.log(`${assetDir}/hatsmasks/hat${emoticon.hat.index}.png`)
+                var beard = new Image();
+                beard.src = `${assetDir}/beards/beard${emoticon.beard.index}.png`;
 
-                hat.onload = function () {
-                    ctx.filter = `hue-rotate(${emoticon.hat.hue}deg) saturate(${emoticon.hat.sat}%) brightness(${emoticon.hat.lit}%)`;
-                    ctx.drawImage(hat, 0, 0, 360, 360);
-                    removeMask();
+                beard.onload = function () {
+                    ctx.filter = `hue-rotate(${emoticon.beard.hue}deg) saturate(${emoticon.beard.sat}%) brightness(${emoticon.beard.lit}%)`;
+                    ctx.drawImage(beard, 0, 0, 360, 360);
+
+                    var hat = new Image();
+                    hat.src = `${assetDir}/hatsmasks/hat${emoticon.hat.index}.png`;
+
+                    hat.onload = function () {
+                        ctx.filter = `hue-rotate(${emoticon.hat.hue}deg) saturate(${emoticon.hat.sat}%) brightness(${emoticon.hat.lit}%)`;
+                        ctx.drawImage(hat, 0, 0, 360, 360);
+                        removeMask();
+                    }
                 }
             }
         }

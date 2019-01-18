@@ -306,3 +306,65 @@ hatLitReset.onclick = function () {
     hatLitDisplay.value = emoticon.hat.lit;
     displayEmoticon();
 }
+
+
+var accessHueSlider  = document.getElementById("accessHue");
+var accessHueDisplay = document.getElementById("accessHueDisplay");
+var accessHueReset   = document.getElementById("accessHueReset");
+var accessSatSlider  = document.getElementById("accessSat");
+var accessSatDisplay = document.getElementById("accessSatDisplay");
+var accessSatReset   = document.getElementById("accessSatReset");
+var accessLitSlider  = document.getElementById("accessLit");
+var accessLitDisplay = document.getElementById("accessLitDisplay");
+var accessLitReset   = document.getElementById("accessLitReset");
+
+accessHueSlider.oninput = function() {
+    accessHueDisplay.value = this.value;
+    emoticon.access.hue = this.value;
+    displayEmoticon();
+}
+accessHueDisplay.oninput = function () {
+    accessHueSlider.value = this.value;
+    emoticon.access.hue = this.value;
+    displayEmoticon();
+}
+accessHueReset.onclick = function () {
+    emoticon.access.hue = hueDefault;
+    accessHueSlider.value = emoticon.access.hue;
+    accessHueDisplay.value = emoticon.access.hue;
+    displayEmoticon();
+}
+
+accessSatSlider.oninput = function() {
+    accessSatDisplay.value = this.value;
+    emoticon.access.sat = this.value;
+    displayEmoticon();
+}
+accessSatDisplay.oninput = function () {
+    accessSatSlider.value = this.value;
+    emoticon.access.sat = this.value;
+    displayEmoticon();
+}
+accessSatReset.onclick = function () {
+    emoticon.access.sat = satDefault;
+    accessSatSlider.value = emoticon.access.sat;
+    accessSatDisplay.value = emoticon.access.sat;
+    displayEmoticon();
+}
+
+accessLitSlider.oninput = function() {
+    accessLitDisplay.value = this.value;
+    emoticon.access.lit = this.value;
+    displayEmoticon();
+}
+accessLitDisplay.oninput = function () {
+    accessLitSlider.value = this.value;
+    emoticon.access.lit = this.value;
+    displayEmoticon();
+}
+accessLitReset.onclick = function () {
+    emoticon.access.lit = litDefault;
+    accessLitSlider.value = emoticon.access.lit;
+    accessLitDisplay.value = emoticon.access.lit;
+    displayEmoticon();
+}

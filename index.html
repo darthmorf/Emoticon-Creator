@@ -15,7 +15,15 @@
 
     <canvas id="canvas"></canvas><br>
 
-    <div id="headbaseSelect"></div>
+    <div id="headbaseOptions">
+        Hue <br>
+        <input type="range" min="-180" max="180" value="0"   id="headbaseHue"><input type="number" min="-180" max="180" value="0"   id="headbaseHueDisplay"><br>
+        Saturation <br>
+        <input type="range" min="0"    max="200" value="100" id="headbaseSat"><input type="number" min="0"    max="200" value="100" id="headbaseSatDisplay"><br>
+        Lightness <br>
+        <input type="range" min="0"    max="200" value="100" id="headbaseLit"><input type="number" min="0"    max="200" value="100" id="headbaseLitDisplay"><br>
+        <br>
+    </div>
     
     <script src="js/main.js"></script>
 </body>

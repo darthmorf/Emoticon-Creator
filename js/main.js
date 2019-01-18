@@ -307,7 +307,7 @@ function displayEmoticon (refreshCanvas=false) {
 }
 
 function removeMask () {
-    var maskColour = [255,0,255];
+    var maskColour = ctx.getImageData(0, 0, 1, 1).data;
     var canvasData = ctx.getImageData(0, 0, 400, 400),
         pix = canvasData.data;
 

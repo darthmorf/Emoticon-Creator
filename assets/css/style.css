@@ -1,3 +1,79 @@
+@font-face {
+    font-family: Andy Mt;
+    src: url("../fonts/andy-mt-bold.ttf");
+  }
+
+body {
+    font-family: Andy Mt;
+    color: white;
+    font-size: 24px;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    background: url("../img/bg.png") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.container {
+    background-color: rgba(56, 58, 134, 0.7);
+    padding: 10px;
+    border-radius: 15px;
+    border-color: rgba(28, 27, 60, 0.7);
+    border-style: solid;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: -10px;
+}
+
+.optionContainerSizing {
+    min-height: 408px;
+    min-width: 416px;
+}
+
+.button {
+    background-color: rgba(56, 58, 134, 0.7); 
+
+    border-radius: 3px;
+    border-color: rgba(28, 27, 60, 0.7);
+    border-style: solid;
+    display: inline-block; 
+    cursor: pointer;
+    vertical-align: top;   
+
+    font-family: Andy Mt;
+    color: white;
+    font-size: 48px;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+
+.bigButton {
+    height: 66px;
+    width:  66px;
+}
+
+.smallButton {
+    height: 52px;
+    width:  52px;
+}
+
+.downloadButton {
+    height: 66px;
+    margin-left: 8px;
+}
+
+.hslDisplay {
+    width: 42px;
+    vertical-align: top;
+}
+
+.hslReset {
+    font-size: 20px;
+    vertical-align: top;
+}
+
 .disabled {
     display: none;
 }

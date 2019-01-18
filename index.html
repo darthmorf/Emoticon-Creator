@@ -14,94 +14,97 @@
 
 <body onload="init()">
 
-    <canvas id="canvas"></canvas><br>
+    <img src="assets/img/logo.png"><br>
 
-    <div id="tabButtons">
-        <button id="showHeadbaseOptions">
+    <div id="tabButtons" >
+        <button id="showHeadbaseOptions" class="bigButton button">
             <img src="./assets/img/faceOptions.png">
         </button>
-        <button id="showEyeOptions">
+        <button id="showEyeOptions" class="bigButton button">
             <img src="assets/img/eyeOptions.png">
         </button>
-        <button id="showHairOptions">
+        <button id="showHairOptions" class="bigButton button">
             <img src="assets/img/hairOptions.png">
         </button>
-        <button id="showBeardOptions">
+        <button id="showBeardOptions" class="bigButton button">
             <img src="assets/img/beardOptions.png">
         </button>
-        <button id="showHatOptions">
+        <button id="showHatOptions" class="bigButton button">
             <img src="assets/img/hatOptions.png">
         </button>
-        <button id="showAccessOptions">
+        <button id="showAccessOptions" class="bigButton button">
             <img src="assets/img/accessOptions.png">
-        </button>
+        </button>     
         
-    </div><br><br>
+        <input type="submit" value="Download" id="downloadBtn" class="downloadButton button"/>
+    </div>
+        
+    <br>
 
-    <div id="headbaseOptions">
-        Hue <br>
-        <input type="range" min="-180" max="180" value="0"   id="headbaseHue"><input type="number" min="-180" max="180" value="0"   id="headbaseHueDisplay"> <i class="fas fa-redo" id="headbaseHueReset" style="cursor: pointer;"></i><br>
-        Saturation <br>
-        <input type="range" min="0"    max="200" value="100" id="headbaseSat"><input type="number" min="0"    max="200" value="100" id="headbaseSatDisplay"> <i class="fas fa-redo" id="headbaseSatReset" style="cursor: pointer;"></i><br>
-        Lightness <br>
-        <input type="range" min="0"    max="200" value="100" id="headbaseLit"><input type="number" min="0"    max="200" value="100" id="headbaseLitDisplay"> <i class="fas fa-redo" id="headbaseLitReset" style="cursor: pointer;"></i><br>
-        <br>
+    <div class="container optionContainerSizing">
+        <div id="headbaseOptions">
+            Hue <br>
+            <input type="range" min="-180" max="180" value="0"   id="headbaseHue"> <input type="number" min="-180" max="180" value="0"   id="headbaseHueDisplay" class="hslDisplay"> <i class="fas fa-redo hslReset" id="headbaseHueReset" style="cursor: pointer;"></i><br>
+            Saturation <br>
+            <input type="range" min="0"    max="200" value="100" id="headbaseSat"> <input type="number" min="0"    max="200" value="100" id="headbaseSatDisplay" class="hslDisplay"> <i class="fas fa-redo hslReset" id="headbaseSatReset" style="cursor: pointer;"></i><br>
+            Lightness <br>
+            <input type="range" min="0"    max="200" value="100" id="headbaseLit"> <input type="number" min="0"    max="200" value="100" id="headbaseLitDisplay" class="hslDisplay"> <i class="fas fa-redo hslReset" id="headbaseLitReset" style="cursor: pointer;"></i><br>
+            <br>
+        </div>
+
+        <div id="eyeOptions" class="disabled">
+            Hue <br>
+            <input type="range" min="-180" max="180" value="0"   id="eyeHue"> <input type="number" min="-180" max="180" value="0"   id="eyeHueDisplay" class="hslDisplay"> <i class="fas fa-redo hslReset" id="eyeHueReset" style="cursor: pointer;"></i><br>
+            Saturation <br>
+            <input type="range" min="0"    max="200" value="100" id="eyeSat"> <input type="number" min="0"    max="200" value="100" id="eyeSatDisplay" class="hslDisplay"> <i class="fas fa-redo hslReset" id="eyeSatReset" style="cursor: pointer;"></i><br>
+            Lightness <br>
+            <input type="range" min="0"    max="200" value="100" id="eyeLit"> <input type="number" min="0"    max="200" value="100" id="eyeLitDisplay" class="hslDisplay"> <i class="fas fa-redo hslReset" id="eyeLitReset" style="cursor: pointer;"></i><br>
+        </div>
+
+        <div id="hairOptions" class="disabled">
+            Hue <br>
+            <input type="range" min="-180" max="180" value="0"   id="hairHue"> <input type="number" min="-180" max="180" value="0"   id="hairHueDisplay" class="hslDisplay"> <i class="fas fa-redo hslReset" id="hairHueReset" style="cursor: pointer;"></i><br>
+            Saturation <br>
+            <input type="range" min="0"    max="200" value="100" id="hairSat"> <input type="number" min="0"    max="200" value="100" id="hairSatDisplay" class="hslDisplay"> <i class="fas fa-redo hslReset" id="hairSatReset" style="cursor: pointer;"></i><br>
+            Lightness <br>
+            <input type="range" min="0"    max="200" value="100" id="hairLit"> <input type="number" min="0"    max="200" value="100" id="hairLitDisplay" class="hslDisplay"> <i class="fas fa-redo hslReset" id="hairLitReset" style="cursor: pointer;"></i><br>
+            <br>
+        </div>
+
+        <div id="beardOptions" class="disabled">
+            Hue <br>
+            <input type="range" min="-180" max="180" value="0"   id="beardHue"> <input type="number" min="-180" max="180" value="0"   id="beardHueDisplay" class="hslDisplay"> <i class="fas fa-redo hslReset" id="beardHueReset" style="cursor: pointer;"></i><br>
+            Saturation <br>
+            <input type="range" min="0"    max="200" value="100" id="beardSat"> <input type="number" min="0"    max="200" value="100" id="beardSatDisplay" class="hslDisplay"> <i class="fas fa-redo hslReset" id="beardSatReset" style="cursor: pointer;"></i><br>
+            Lightness <br>
+            <input type="range" min="0"    max="200" value="100" id="beardLit"> <input type="number" min="0"    max="200" value="100" id="beardLitDisplay" class="hslDisplay"> <i class="fas fa-redo hslReset" id="beardLitReset" style="cursor: pointer;"></i><br>
+            <br>
+        </div>
+
+        <div id="hatOptions" class="disabled">
+            Hue <br>
+            <input type="range" min="-180" max="180" value="0"   id="hatHue"> <input type="number" min="-180" max="180" value="0"   id="hatHueDisplay" class="hslDisplay"> <i class="fas fa-redo hslReset" id="hatHueReset" style="cursor: pointer;"></i><br>
+            Saturation <br>
+            <input type="range" min="0"    max="200" value="100" id="hatSat"> <input type="number" min="0"    max="200" value="100" id="hatSatDisplay" class="hslDisplay"> <i class="fas fa-redo hslReset" id="hatSatReset" style="cursor: pointer;"></i><br>
+            Lightness <br>
+            <input type="range" min="0"    max="200" value="100" id="hatLit"> <input type="number" min="0"    max="200" value="100" id="hatLitDisplay" class="hslDisplay"> <i class="fas fa-redo hslReset" id="hatLitReset" style="cursor: pointer;"></i><br>
+            <br>
+        </div>
+
+        <div id="accessOptions" class="disabled">
+            Hue <br>
+            <input type="range" min="-180" max="180" value="0"   id="accessHue"> <input type="number" min="-180" max="180" value="0"   id="accessHueDisplay" class="hslDisplay"> <i class="fas fa-redo hslReset" id="accessHueReset" style="cursor: pointer;"></i><br>
+            Saturation <br>
+            <input type="range" min="0"    max="200" value="100" id="accessSat"> <input type="number" min="0"    max="200" value="100" id="accessSatDisplay" class="hslDisplay"> <i class="fas fa-redo hslReset" id="accessSatReset" style="cursor: pointer;"></i><br>
+            Lightness <br>
+            <input type="range" min="0"    max="200" value="100" id="accessLit"> <input type="number" min="0"    max="200" value="100" id="accessLitDisplay" class="hslDisplay"> <i class="fas fa-redo hslReset" id="accessLitReset" style="cursor: pointer;"></i><br>
+            <br>
+        </div>
     </div>
 
-    <div id="eyeOptions" class="disabled">
-        Hue <br>
-        <input type="range" min="-180" max="180" value="0"   id="eyeHue"><input type="number" min="-180" max="180" value="0"   id="eyeHueDisplay"> <i class="fas fa-redo" id="eyeHueReset" style="cursor: pointer;"></i><br>
-        Saturation <br>
-        <input type="range" min="0"    max="200" value="100" id="eyeSat"><input type="number" min="0"    max="200" value="100" id="eyeSatDisplay"> <i class="fas fa-redo" id="eyeSatReset" style="cursor: pointer;"></i><br>
-        Lightness <br>
-        <input type="range" min="0"    max="200" value="100" id="eyeLit"><input type="number" min="0"    max="200" value="100" id="eyeLitDisplay"> <i class="fas fa-redo" id="eyeLitReset" style="cursor: pointer;"></i><br>
+    <div class="container">
+        <canvas id="canvas"></canvas>
     </div>
-
-    <div id="hairOptions" class="disabled">
-        Hue <br>
-        <input type="range" min="-180" max="180" value="0"   id="hairHue"><input type="number" min="-180" max="180" value="0"   id="hairHueDisplay"> <i class="fas fa-redo" id="hairHueReset" style="cursor: pointer;"></i><br>
-        Saturation <br>
-        <input type="range" min="0"    max="200" value="100" id="hairSat"><input type="number" min="0"    max="200" value="100" id="hairSatDisplay"> <i class="fas fa-redo" id="hairSatReset" style="cursor: pointer;"></i><br>
-        Lightness <br>
-        <input type="range" min="0"    max="200" value="100" id="hairLit"><input type="number" min="0"    max="200" value="100" id="hairLitDisplay"> <i class="fas fa-redo" id="hairLitReset" style="cursor: pointer;"></i><br>
-        <br>
-    </div>
-
-    <div id="beardOptions" class="disabled">
-        Hue <br>
-        <input type="range" min="-180" max="180" value="0"   id="beardHue"><input type="number" min="-180" max="180" value="0"   id="beardHueDisplay"> <i class="fas fa-redo" id="beardHueReset" style="cursor: pointer;"></i><br>
-        Saturation <br>
-        <input type="range" min="0"    max="200" value="100" id="beardSat"><input type="number" min="0"    max="200" value="100" id="beardSatDisplay"> <i class="fas fa-redo" id="beardSatReset" style="cursor: pointer;"></i><br>
-        Lightness <br>
-        <input type="range" min="0"    max="200" value="100" id="beardLit"><input type="number" min="0"    max="200" value="100" id="beardLitDisplay"> <i class="fas fa-redo" id="beardLitReset" style="cursor: pointer;"></i><br>
-        <br>
-    </div>
-
-    <div id="hatOptions" class="disabled">
-        Hue <br>
-        <input type="range" min="-180" max="180" value="0"   id="hatHue"><input type="number" min="-180" max="180" value="0"   id="hatHueDisplay"> <i class="fas fa-redo" id="hatHueReset" style="cursor: pointer;"></i><br>
-        Saturation <br>
-        <input type="range" min="0"    max="200" value="100" id="hatSat"><input type="number" min="0"    max="200" value="100" id="hatSatDisplay"> <i class="fas fa-redo" id="hatSatReset" style="cursor: pointer;"></i><br>
-        Lightness <br>
-        <input type="range" min="0"    max="200" value="100" id="hatLit"><input type="number" min="0"    max="200" value="100" id="hatLitDisplay"> <i class="fas fa-redo" id="hatLitReset" style="cursor: pointer;"></i><br>
-        <br>
-    </div>
-
-    <div id="accessOptions" class="disabled">
-        Hue <br>
-        <input type="range" min="-180" max="180" value="0"   id="accessHue"><input type="number" min="-180" max="180" value="0"   id="accessHueDisplay"> <i class="fas fa-redo" id="accessHueReset" style="cursor: pointer;"></i><br>
-        Saturation <br>
-        <input type="range" min="0"    max="200" value="100" id="accessSat"><input type="number" min="0"    max="200" value="100" id="accessSatDisplay"> <i class="fas fa-redo" id="accessSatReset" style="cursor: pointer;"></i><br>
-        Lightness <br>
-        <input type="range" min="0"    max="200" value="100" id="accessLit"><input type="number" min="0"    max="200" value="100" id="accessLitDisplay"> <i class="fas fa-redo" id="accessLitReset" style="cursor: pointer;"></i><br>
-        <br>
-    </div>
-    
-    <br><br>
-
-    <form id="downloadBtn" action="">
-        <input type="submit" value="Download" />
-    </form>
 
     <script src="js/main.js"></script>
     <script src="js/sliderEvents.js"></script>

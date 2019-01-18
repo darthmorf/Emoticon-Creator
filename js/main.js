@@ -128,6 +128,7 @@ showBeardOptions.onclick = function () {
     eyeOptions.classList.add("disabled");
     hatOptions.classList.add("disabled");
     hairOptions.classList.add("disabled");
+    accessOptions.classList.add("disabled");
 }
 
 showHatOptions.onclick = function () {
@@ -154,10 +155,15 @@ function loadHeadbaseOptions () {
     for (i=0; i <= headbaseCount; i++){
         var button = document.createElement("button");
         button.headbaseIndex = i;
+        button.classList.add("button");
+        button.classList.add("smallButton");
         button.innerHTML = `<img src=${assetDir}/headbasespreview/headbase${i}.png>`;
         button.onclick = function () {
             emoticon.headbase.index = this.headbaseIndex;
             displayEmoticon(true);
+        }
+        if (i % 8 == 0 && i != 0){
+            headbaseOptions.appendChild(document.createElement("BR"));
         }
         headbaseOptions.appendChild(button);
     }
@@ -169,10 +175,15 @@ function loadHairOptions () {
     for (i=0; i <= hairCount; i++){
         var button = document.createElement("button");
         button.hairIndex = i;
+        button.classList.add("button");
+        button.classList.add("smallButton");
         button.innerHTML = `<img src=${assetDir}/hairpreview/hair${i}.png>`;
         button.onclick = function () {
             emoticon.hair.index = this.hairIndex;
             displayEmoticon(true);
+        }
+        if (i % 8 == 0 && i != 0){
+            hairOptions.appendChild(document.createElement("BR"));
         }
         hairOptions.appendChild(button);
     }
@@ -184,10 +195,15 @@ function loadBeardOptions () {
     for (i=0; i <= beardCount; i++){
         var button = document.createElement("button");
         button.beardIndex = i;
+        button.classList.add("button");
+        button.classList.add("smallButton");
         button.innerHTML = `<img src=${assetDir}/beardspreview/beard${i}.png>`;
         button.onclick = function () {
             emoticon.beard.index = this.beardIndex;
             displayEmoticon(true);
+        }
+        if (i % 8 == 0 && i != 0){
+            beardOptions.appendChild(document.createElement("BR"));
         }
         beardOptions.appendChild(button);
     }
@@ -199,10 +215,15 @@ function loadHatOptions () {
     for (i=0; i <= hatCount; i++){
         var button = document.createElement("button");
         button.hatIndex = i;
+        button.classList.add("button");
+        button.classList.add("smallButton");
         button.innerHTML = `<img src=${assetDir}/hatspreview/hat${i}.png>`;
         button.onclick = function () {
             emoticon.hat.index = this.hatIndex;
             displayEmoticon(true);
+        }
+        if (i % 8 == 0 && i != 0){
+            hatOptions.appendChild(document.createElement("BR"));
         }
         hatOptions.appendChild(button);
     }
@@ -214,10 +235,15 @@ function loadAccessOptions () {
     for (i=0; i <= accessCount; i++){
         var button = document.createElement("button");
         button.accessIndex = i;
+        button.classList.add("button");
+        button.classList.add("smallButton");
         button.innerHTML = `<img src=${assetDir}/accesspreview/access${i}.png>`;
         button.onclick = function () {
             emoticon.access.index = this.accessIndex;
             displayEmoticon(true);
+        }
+        if (i % 8 == 0 && i != 0){
+            accessOptions.appendChild(document.createElement("BR"));
         }
         accessOptions.appendChild(button);
     }

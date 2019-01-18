@@ -19,6 +19,8 @@ var hatOptions = document.getElementById("hatOptions");
 var showAccessOptions = document.getElementById("showAccessOptions");
 var accessOptions = document.getElementById("accessOptions");
 
+var downloadButton = document.getElementById("downloadBtn");
+
 canvas.width = 400;
 canvas.height = 400;
 ctx.imageSmoothingEnabled = false;
@@ -74,6 +76,23 @@ function init() {
     loadBeardOptions();
     loadAccessOptions();
     displayEmoticon();
+}
+
+downloadButton.onclick = function () {
+    var lnk = document.createElement('a'), e;
+    lnk.download = "emote.png";
+    lnk.href = canvas.toDataURL("image/png;base64");
+
+    if (document.createEvent) {
+        e = document.createEvent("MouseEvents");
+        e.initMouseEvent("click", true, true, window,
+                        0, 0, 0, 0, 0, false, false, false,
+                        false, 0, null);
+
+        lnk.dispatchEvent(e);
+    } else if (lnk.fireEvent) {
+        lnk.fireEvent("onclick");
+    }
 }
 
 showHeadbaseOptions.onclick = function () {

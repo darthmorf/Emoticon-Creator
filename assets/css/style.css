@@ -32,6 +32,10 @@ body {
     min-width: 416px;
 }
 
+.slider {
+    width: 330px;
+}
+
 .button {
     background-color: rgba(56, 58, 134, 0.7); 
 

@@ -90,14 +90,29 @@ function init() {
     beards = loadAssets(beardCount, `${assetDir}/beards/beard`);
     hats = loadAssets(hatCount, `${assetDir}/hats/hat`);
     accessories = loadAssets(accessCount, `${assetDir}/access/access`);
+
+    loadOptions(headbaseCount, `${assetDir}/headbasespreview/headbase`, headbaseOptions, function () {
+        emoticon.headbase.index = this.index;
+        displayEmoticon(true);
+    });
+    loadOptions(hairCount, `${assetDir}/hairpreview/hair`, hairOptions, function () {
+        emoticon.hair.index = this.index;
+        displayEmoticon(true);
+    });
+    loadOptions(beardCount, `${assetDir}/beardspreview/beard`, beardOptions, function () {
+        emoticon.beard.index = this.index;
+        displayEmoticon(true);
+    });
+    loadOptions(hatCount, `${assetDir}/hatspreview/hat`, hatOptions, function () {
+        emoticon.hat.index = this.index;
+        displayEmoticon(true);
+    });
+    loadOptions(accessCount, `${assetDir}/accesspreview/access`, accessOptions, function () {
+        emoticon.access.index = this.index;
+        displayEmoticon(true);
+    });
     
     displayEmoticon();
-
-    loadHeadbaseOptions();
-    loadHairOptions();
-    loadHatOptions();
-    loadBeardOptions();
-    loadAccessOptions();
 }
 
 function loadAssets (count, path) {
@@ -110,98 +125,18 @@ function loadAssets (count, path) {
    return assets;
 }
 
-function loadHeadbaseOptions () {
-    var i = 0;
-    for (i=0; i <= headbaseCount; i++){
+function loadOptions(count, path, parent, onclick) {
+    for (var i=0; i <= count; i++){
         var button = document.createElement("button");
-        button.headbaseIndex = i;
+        button.index = i;
         button.classList.add("button");
         button.classList.add("smallButton");
-        button.innerHTML = `<img src=${assetDir}/headbasespreview/headbase${i}.png>`;
-        button.onclick = function () {
-            emoticon.headbase.index = this.headbaseIndex;
-            displayEmoticon(true);
-        }
+        button.innerHTML = `<img src=${path}${i}.png>`;
+        button.onclick = onclick;
         if (i % 8 == 0 && i != 0){
-            headbaseOptions.appendChild(document.createElement("BR"));
+            parent.appendChild(document.createElement("BR"));
         }
-        headbaseOptions.appendChild(button);
-    }
-}
-
-function loadHairOptions () {
-    var i = 0;
-    for (i=0; i <= hairCount; i++){
-        var button = document.createElement("button");
-        button.hairIndex = i;
-        button.classList.add("button");
-        button.classList.add("smallButton");
-        button.innerHTML = `<img src=${assetDir}/hairpreview/hair${i}.png>`;
-        button.onclick = function () {
-            emoticon.hair.index = this.hairIndex;
-            displayEmoticon(true);
-        }
-        if (i % 8 == 0 && i != 0){
-            hairOptions.appendChild(document.createElement("BR"));
-        }
-        hairOptions.appendChild(button);
-    }
-}
-
-function loadBeardOptions () {
-    var i = 0;
-    for (i=0; i <= beardCount; i++){
-        var button = document.createElement("button");
-        button.beardIndex = i;
-        button.classList.add("button");
-        button.classList.add("smallButton");
-        button.innerHTML = `<img src=${assetDir}/beardspreview/beard${i}.png>`;
-        button.onclick = function () {
-            emoticon.beard.index = this.beardIndex;
-            displayEmoticon(true);
-        }
-        if (i % 8 == 0 && i != 0){
-            beardOptions.appendChild(document.createElement("BR"));
-        }
-        beardOptions.appendChild(button);
-    }
-}
-
-function loadHatOptions () {
-    var i = 0;
-    for (i=0; i <= hatCount; i++){
-        var button = document.createElement("button");
-        button.hatIndex = i;
-        button.classList.add("button");
-        button.classList.add("smallButton");
-        button.innerHTML = `<img src=${assetDir}/hatspreview/hat${i}.png>`;
-        button.onclick = function () {
-            emoticon.hat.index = this.hatIndex;
-            displayEmoticon(true);
-        }
-        if (i % 8 == 0 && i != 0){
-            hatOptions.appendChild(document.createElement("BR"));
-        }
-        hatOptions.appendChild(button);
-    }
-}
-
-function loadAccessOptions () {
-    var i = 0;
-    for (i=0; i <= accessCount; i++){
-        var button = document.createElement("button");
-        button.accessIndex = i;
-        button.classList.add("button");
-        button.classList.add("smallButton");
-        button.innerHTML = `<img src=${assetDir}/accesspreview/access${i}.png>`;
-        button.onclick = function () {
-            emoticon.access.index = this.accessIndex;
-            displayEmoticon(true);
-        }
-        if (i % 8 == 0 && i != 0){
-            accessOptions.appendChild(document.createElement("BR"));
-        }
-        accessOptions.appendChild(button);
+        parent.appendChild(button);
     }
 }
 
